@@ -95,15 +95,15 @@ void connectToWiFi()
   WiFi.begin(ssid, password);
 	if (WiFi.status() == WL_CONNECTED) 
 	{
-			Serial.println("Connected");
-			if(isConnectedToInternet())
-			{
-				wifi_state = CONNECTED_INTERNET;
-			}
-			else
-			{
-				wifi_state = CONNECTED_NO_INTERNET;
-			}
+		Serial.println("Connected");
+		if(isConnectedToInternet())
+		{
+			wifi_state = CONNECTED_INTERNET;
+		}
+		else
+		{
+			wifi_state = CONNECTED_NO_INTERNET;
+		}
 	}
 	else
 	{
@@ -121,11 +121,11 @@ bool isConnectedToInternet()
 	HTTPClient http;
 
 	http.begin("www.google.com");
-  int httpCode = http.GET();            
-  String payload = http.getString();
-  http.end();
+	int httpCode = http.GET();            
+	String payload = http.getString();
+	http.end();
 
-  if (httpCode == 200)
+	if (httpCode == 200)
 		return true;
 	return false;
 }
